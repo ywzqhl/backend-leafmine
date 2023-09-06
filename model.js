@@ -18,6 +18,24 @@ const Donate = new mongoose.Schema({
         required:true,
     },
 })
+const Request = new mongoose.Schema({
+    name:{
+        type:String,
+        required:true,
+    },
+    mobilenumber:{
+        type:Number,
+        required:true,
+    },
+    address:{
+        type:String,
+        required:true,
+    },
+    bloodtype:{
+        type:String,
+        required:true,
+    },
+})
 const User = new mongoose.Schema({
     firstname:{
         type:String,
@@ -40,5 +58,6 @@ const User = new mongoose.Schema({
 // module.exports = mongoose.model('Donate',Donate)
 module.exports = {
     User: mongoose.model('User', User),
-    Donate: mongoose.model('Donate', Donate)
+    Donate: mongoose.model('Donate', Donate),
+    Request: mongoose.model('Request', Request)
 };

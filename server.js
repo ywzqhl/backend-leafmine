@@ -3,7 +3,7 @@ const mongoose= require('mongoose');
 const app = express();
 const cors = require('cors');
 app.use(cors());
-const {Donate,User} = require("./model");
+const {Donate,User,Request} = require("./model");
 const jwt =require('jsonwebtoken');
 const middleware = require('./middleware');
 // const User = require("./model");
@@ -26,6 +26,23 @@ app.post('/donation', async(req,res)=>{
         const newData = new Donate({name:name,mobilenumber:mobilenumber,address:address,bloodtype:bloodtype});
         await newData.save();
         return res.json(await Donate.find());
+        console.log(req.body);
+        // const data = JSON.parse(response.data);
+        // console.log(data)
+
+
+    }
+    catch(err){
+        console.log(err)
+    }
+
+})
+app.post('/request', async(req,res)=>{
+    const {name,mobilenumber,address,bloodtype} =req.body;
+    try{
+        const newData = new Request({name:name,mobilenumber:mobilenumber,address:address,bloodtype:bloodtype});
+        await newData.save();
+        return res.json(await Request.find());
         console.log(req.body);
         // const data = JSON.parse(response.data);
         // console.log(data)
@@ -114,6 +131,17 @@ app.get('/donate', async(req,res)=>{
     try{
         const donation = await Donate.find();
         return res.json(donation);
+
+    }
+    catch(err){
+        console.log(err);
+    }
+
+})
+app.get('/requestdata', async(req,res)=>{
+    try{
+        const requestdata = await Request.find();
+        return res.json(requestdata);
 
     }
     catch(err){
