@@ -12,6 +12,13 @@ const uploadMiddleware = multer({ dest: 'uploads/' });
 const fs = require('fs');
 const port = process.env.PORT || 5000;
 
+const corsOptions = {
+  origin: 'https://web.telegram.org', // Update with the correct origin
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
+
 // const salt = bcrypt.genSaltSync(10);
 // const secret = 'asdfe45we45w345wegw345werjktjwertkj';
 
