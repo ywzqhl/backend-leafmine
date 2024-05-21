@@ -173,7 +173,7 @@ bot.on('message', (msg) => {
   const username = msg.from.username;
 
   if (messageText === '/start') {
-    const webAppUrl = `https://your-web-app-url.com?userId=${userId}`;
+    const webAppUrl = `http://t.me/LeafMineBot/LeafMine?userId=${userId}`;
     const keyboard = {
       inline_keyboard: [
         [
