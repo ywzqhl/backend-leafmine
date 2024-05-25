@@ -172,7 +172,7 @@ app.use(cors(corsOptions));
 
 const TelegramBot = require('node-telegram-bot-api');
 const { hostname } = require('os');
-const token = '7041763974:AAHRVMVsFza1HneXfKDifYY2or2ydoX93S8';
+const token = '6820674346:AAGXI04qSIvcqeCr_6coRs_rO7tBt1vya48';
 const bot = new TelegramBot(token, {polling: true});
 
 bot.on('message', (msg) => {
